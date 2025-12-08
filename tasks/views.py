@@ -10,7 +10,10 @@ class TaskViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, IsOwner]
 
     def get_queryset(self):         # user sees only their own tasks
-        return Task.objects.filter(owner=self.request.user)
+        user=self.request.user
+        if user.is_staff or user.is_superuser:
+            return Task.objects.all()
+        return Task.objects.filter(owner=user)
     
     def perform_create(self, serializer):         # set the task owner to the logged-in user
         serializer.save(owner=self.request.user)
