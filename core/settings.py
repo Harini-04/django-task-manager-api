@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'tasks',
+    'drf_yasg',
 ]
 
 REST_FRAMEWORK = {
@@ -121,6 +122,17 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
+
+SWAGGER_SETTINGS={
+    'SECURITY_DEFINITIONS':{
+        'Bearer':{
+            'type':'apiKey',
+            'name':'Authorization',
+            'in':'header',
+            'description':'JWT Authorization header using the Bearer scheme.',
+        }
+    }
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
