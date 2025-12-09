@@ -63,7 +63,6 @@ This project uses **JWT (JSON Web Token)** authentication.
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the repository
-```bash
 - git clone <repo-url>
 - cd task-manager-backend
 
